@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+
+/* global styles */
+* {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --blue: #3683F0;
+    --icon-height: 2.2rem;
+}
+
+.bg-transparent {
+    background-color: transparent !important;
+    color: black !important;
+}
+
+.relative {
+    position: relative;
+}
+
+/* specific styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 100vh;
+}
+
+.border {
+    border: 1px solid lightgray;
+}
+
+.avatar {
+    border-radius: 100%;
+    height: var(--icon-height);
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icons>*+* {
+    margin-left: 1rem;
+}
+
+.icon {
+    background-color: var(--blue);
+    border-radius: 100%;
+    height: var(--icon-height);
+    width: var(--icon-height);
+    display: grid;
+    place-items: center;
+    color: white;
+}
+
+.badge {
+    position: absolute;
+    background-color: red;
+    height: .5rem;
+    width: .5rem;
+    border-radius: 100%;
+    top: 15%;
+    right: 25%;
+}
