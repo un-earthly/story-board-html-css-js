@@ -112,8 +112,19 @@ nav {
     width: 250px;
     position: absolute;
     left: -0px;
+    top: 20%;
+    background-color: white;
+    height: 100%;
+    border-radius: 0 10px 0 0;
 }
 
+.sidebar.not_visible {
+    left: -200px;
+}
+
+.sidebar.visible {
+    left: 0px;
+}
 
 .menuicon {
     background-color: black;
@@ -123,6 +134,7 @@ nav {
     display: grid;
     place-items: center;
     border-radius: 0 10px 0 0;
+    cursor: pointer;
 }
 
 .menuicon>i {
