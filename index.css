@@ -23,9 +23,9 @@
     position: relative;
 }
 
-h1.text-center {
+h4.text-center {
     text-align: center;
-    margin: 2rem 0;
+    margin: 2rem;
 }
 
 /* specific styles */
@@ -43,7 +43,17 @@ nav {
 
 .taskcontainer {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    place-items: center;
+}
+
+.asset {
+    grid-column: span 2;
+}
+
+.asset:nth-last-child(1):nth-child(odd) {
+    grid-column: span 2 / 4;
 }
 
 .border {
@@ -105,6 +115,14 @@ nav {
     border-radius: 10px 10px 0px 0px;
 }
 
+.rounded_top {
+    border-radius: 10px 10px 0 0 !important;
+}
+
+.accordion_body {
+    background: white;
+}
+
 /* sidebar styles*/
 
 .sidebar {
@@ -125,7 +143,7 @@ nav {
     left: 0px;
 }
 
-.menuicon {
+.black_heading {
     background-color: black;
     color: white;
     height: 2rem;
@@ -136,7 +154,7 @@ nav {
     cursor: pointer;
 }
 
-.menuicon>i {
+.black_heading>i {
     position: absolute;
     right: 1rem;
 }

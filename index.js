@@ -5,7 +5,11 @@ const toggle = (el, toAdd, ToRemove) => {
     el.classList.add(toAdd)
     el.classList.remove(ToRemove)
 }
+const appendChild = (parent, child) => {
+    parent.appendChild(child)
+}
 
+// variables
 const taskcontainer = getElement('taskcontainer')
 const sidebarIcon = getElement('menuicon');
 const sidebar = getElement('sidebar');
@@ -30,28 +34,44 @@ sidebarIcon.addEventListener('click', () => {
 function fetchData() {
     fetch('data.json')
         .then(res => res.json())
-        .then(data => showData(data.tasks))
+        .then(data => { showData(data.tasks), showBodyData(data.tasks) })
         .catch(err => console.log(err))
 }
 
 
-function show(data) {
+function showSidebarTaskCount(data) {
     const li = createElement('li');
+    console.log(data)
     data.map(task => {
         li.innerHTML = task.task_title
-        ol.appendChild(li)
-        showNestedUl(task.assets, ol)
+        appendChild(ol, li)
+        showSidebarUl(task.assets)
     })
 }
 
-function showNestedUl(data) {
+function showBodyData(data) {
+    taskcontainer.innerHTML = ""
+    data[0].assets.map(asset => {
+        const p = createElement('p')
+        p.innerHTML = asset.asset_title
+        p.classList.add('black_heading', "rounded_top")
+        const div = createElement('div')
+        const accordion_body = createElement('div')
+        accordion_body.innerHTML = asset.asset_description
+        div.classList.add('asset')
+        appendChild(div, p)
+        appendChild(div, accordion_body)
+        appendChild(taskcontainer, div)
+    })
+}
+function showSidebarUl(data) {
     let ul = createElement('ul');
     data.map(asset => {
         let li = document.createElement('li');
         li.innerHTML = asset.asset_title
-        ul.appendChild(li)
+        appendChild(ul, li)
     })
-    ol.appendChild(ul)
+    appendChild(ol, ul)
 }
 
 
@@ -64,11 +84,11 @@ function showData(data) {
         const borderedP = createElement('p')
         borderedP.setAttribute('id', "borderedP")
         borderedP.innerHTML = data.length;
-        ol.appendChild(borderedP)
+        appendChild(ol, borderedP)
     }
     else {
         ol.innerHTML = ""
-        show(data)
+        showSidebarTaskCount(data)
     }
 }
 fetchData()
