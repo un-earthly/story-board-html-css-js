@@ -94,7 +94,6 @@ nav {
 }
 
 /* body */
-
 .main {
     margin-top: 4rem;
 }
@@ -114,9 +113,9 @@ nav {
     left: -0px;
     top: 20%;
     background-color: white;
-    height: 100%;
     border-radius: 0 10px 0 0;
 }
+
 
 .sidebar.not_visible {
     left: -200px;
@@ -144,6 +143,10 @@ nav {
 
 #sidebar_task_heading {
     padding: 0 1rem;
+    border: 2px lightgray solid;
+    border-top: 0;
+    padding: 1rem;
+    min-height: 500px;
 }
 
 #sidebar_task_heading>li {
@@ -158,4 +161,13 @@ nav {
 #sidebar_task_heading>ul>li {
     border-bottom: 1px solid lightgray;
     list-style: disc;
+}
+
+#borderedP {
+    position: absolute;
+    right: 5px;
+    top: 50px;
+    border: 1px solid blue;
+    padding: .5rem 1rem;
+    border-radius: 10px;
 }
